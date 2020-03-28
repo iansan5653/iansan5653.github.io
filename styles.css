@@ -73,8 +73,19 @@ a {
   transition-property: color text-decoration-thickness font-variation-settings;
 }
 
-a:hover,
-a:focus {
+/* OK I hate the way this selector looks too but it does work nicely. */
+.home-active a[href="#home"],
+.virtual-projects-active a[href="#virtual-projects"],
+.physical-projects-active a[href="#physical-projects"],
+.about-active a[href="#about"] {
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625em;
+  text-underline-offset: 0.1875em;
+}
+
+/* Attribute selector is needed to override previous ugliness. */
+a[href]:hover,
+a[href]:focus {
   text-decoration-thickness: 0.125em;
   color: hsl(202, 100%, 24%);
   font-variation-settings: "MONO" 0, "CASL" 0.22, "wght" 800;
