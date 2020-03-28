@@ -1,0 +1,250 @@
+@font-face {
+  font-family: "Recursive";
+  font-style: oblique -15deg 0deg;
+  font-weight: 300 1000;
+  font-display: swap;
+  src: url("./Recursive_VF_1.043--subset_range_english_basic.woff2")
+    format("woff2");
+  unicode-range: U+0020-007F, U+00A9, U+2190-2193, U+2018, U+2019, U+201C,
+    U+201D, U+2022;
+}
+
+:root {
+  font-family: "Recursive", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  font-size: 16px;
+}
+
+body {
+  /* Stretch the body to always fill the page. */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: hsl(180, 10%, 95%);
+  color: hsl(180, 10%, 5%);
+
+  font-variation-settings: "MONO" 0, "CASL" 0.22, "wght" 450;
+
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color color;
+}
+
+/* *** Links *** */
+
+a {
+  color: hsl(202, 99%, 38%);
+
+  text-decoration: underline;
+  text-underline-offset: 0.125em;
+  text-decoration-thickness: 0.0625em;
+
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  transition-property: color text-decoration-thickness font-variation-settings;
+}
+
+a:hover,
+a:focus {
+  text-decoration-thickness: 0.125em;
+  color: hsl(202, 100%, 24%);
+  font-variation-settings: "MONO" 0, "CASL" 0.22, "wght" 800;
+}
+
+/* *** Navigation *** */
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem;
+  max-width: 35rem;
+  margin: auto;
+}
+
+nav a {
+  padding: 1.5rem 1rem;
+  display: inline-block;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-variation-settings: "MONO" 0, "CASL" 0, "wght" 500;
+}
+
+@media screen and (max-width: 400px) {
+  nav a {
+    transform: rotate(-45deg);
+    padding: 2rem 0;
+  }
+}
+
+/* *** Main Content *** */
+
+main {
+  flex-grow: 1;
+  position: relative;
+  overflow: auto;
+}
+
+.js-enabled main {
+  overflow: hidden;
+}
+
+main > * {
+  border-top: 1px solid gray;
+  
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem 2rem;
+  overflow: auto;
+
+  transition: opacity 0.5s ease-in-out;
+}
+
+.js-enabled main > * {
+  opacity: 0;
+  border: none;
+}
+
+main > *:target {
+  opacity: 1;
+  z-index: 1;
+}
+
+h2 {
+  font-variation-settings: "MONO" 0, "CASL" 0.22, "wght" 700, "slnt" -10;
+}
+
+mark {
+  background-color: hsl(54, 82%, 66%);
+  padding: 0 0.25em;
+  transform: skew(-10deg);
+  display: inline-block;
+}
+
+/* All marks should have a span directly inside or the text will be skewed. */
+mark > span {
+  transform: skew(10deg);
+  display: inline-block;
+}
+
+/* *** Page-Specific Styles *** */
+
+/* ** Home ** */
+
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home h1 {
+  font-size: 12.5vw;
+  margin: 0;
+  font-variation-settings: "MONO" 0, "CASL" 0.5, "wght" 800, "slnt" -10;
+  transition: font-variation-settings 0.5s ease-in-out;
+}
+
+#home h1:hover {
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 800, "slnt" 0;
+}
+
+#home .subtitle {
+  font-size: 3vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 900px) {
+  #home h1 {
+    font-size: 112.5px;
+  }
+
+  #home .subtitle {
+    font-size: 27px;
+  }
+}
+
+@media screen and (max-width: 533px) {
+  #home .subtitle {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #home h1 {
+    font-size: 40px;
+  }
+}
+
+#home .subtitle > *:not(:last-child) {
+  margin-right: 1ch;
+}
+
+/* ** Virtual Projects ** */
+
+#virtual-projects {
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 450;
+}
+
+#virtual-projects h2 {
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 700, "slnt" -10;
+}
+
+.virtual-projects-active {
+  background-color: hsl(180, 6%, 7%);
+  color: hsl(180, 10%, 95%);
+}
+
+.virtual-projects-active nav a {
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 400;
+}
+
+.virtual-projects-active a {
+  color: hsl(202, 90%, 61%);
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 450;
+}
+
+.virtual-projects-active a:hover,
+.virtual-projects-active a:focus {
+  color: hsl(202, 99%, 38%);
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 700;
+}
+
+.about-active {
+  background-color: hsl(202, 99%, 38%);
+  color: hsl(0, 0%, 95%);
+}
+
+/* ** About ** */
+
+/* These selectors will both style the links in the about page, but the
+class selector will help the navbar transition smoothly while the ID selector
+will make the content links always this color. This prevents them from changing
+color and opacity at the same time, which is ugly. */
+.about-active a,
+.js-enabled #about a {
+  color: hsl(54, 100%, 82%);
+}
+
+.about-active a:hover,
+.about-active a:focus {
+  color: hsl(54, 88%, 55%);
+}
