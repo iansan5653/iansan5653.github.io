@@ -15,6 +15,15 @@
   font-size: 16px;
 }
 
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 body {
   /* Stretch the body to always fill the page. */
   position: fixed;
@@ -35,6 +44,19 @@ body {
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   transition-property: background-color color;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  animation: 0.5s 0.5s ease-in-out fade-out forwards;
+  background: white;
+  pointer-events: none;
 }
 
 /* *** Links *** */
@@ -103,7 +125,7 @@ main {
 
 main > * {
   border-top: 1px solid gray;
-  
+
   z-index: 0;
   position: absolute;
   top: 0;
@@ -121,7 +143,9 @@ main > * {
   border: none;
 }
 
-main > *:target {
+/* The second selector is necessary for the case when there is no target. */
+.js-enabled main > *:target,
+.home-active #home {
   opacity: 1;
   z-index: 1;
 }

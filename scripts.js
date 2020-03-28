@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const nav = document.getElementById("main-navigation");
   if (nav) {
     document.body.classList.add("js-enabled");
-    updateBodyClass(window.location.hash.slice(1));
+    updateBodyClass((window.location.hash || "#home").slice(1));
     Array.from(nav.querySelectorAll("a")).forEach(menuLink => {
       menuLink.addEventListener("click", ({ target }) =>
         handleNavClick(target)
