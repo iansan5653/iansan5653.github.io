@@ -268,7 +268,10 @@ color and opacity at the same time, which is ugly. */
   color: hsl(54, 100%, 82%);
 }
 
+/* The ID selector here really is only for overriding the ID selector above. */
 .about-active a:hover,
-.about-active a:focus {
+.about-active a:focus,
+.js-enabled #about a:hover,
+.js-enabled #about a:focus {
   color: hsl(54, 88%, 55%);
 }
