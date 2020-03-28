@@ -252,12 +252,12 @@ mark > span {
   font-variation-settings: "MONO" 1, "CASL" 0, "wght" 700;
 }
 
+/* ** About ** */
+
 .about-active {
-  background-color: hsl(202, 99%, 38%);
+  background-color: hsl(202, 100%, 29%);
   color: hsl(0, 0%, 95%);
 }
-
-/* ** About ** */
 
 /* These selectors will both style the links in the about page, but the
 class selector will help the navbar transition smoothly while the ID selector
