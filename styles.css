@@ -12,10 +12,18 @@ body {
 a {
   color: rgb(73, 104, 205);
   text-underline-offset: 0.125em;
+  text-decoration-thickness: 1px;
+  text-decoration-skip-ink: all;
 
   &:hover,
   &:focus {
     text-decoration-style: dashed;
+  }
+
+  &:focus {
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
@@ -54,6 +62,7 @@ main {
 
   article {
     container: article / inline-size;
+    margin-block-end: 3em;
 
     p, h2, figcaption {
       text-box: trim-both text;
