@@ -16,11 +16,11 @@ a {
   text-decoration-skip-ink: all;
 
   &:hover,
-  &:focus {
-    text-decoration-style: dashed;
+  &:focus-visible {
+    text-decoration-style: dotted;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 1px solid currentColor;
     outline-offset: 2px;
     border-radius: 2px;
@@ -60,13 +60,31 @@ main {
     }
   }
 
+  h2 {
+    margin-block: 1.5em 0;
+    clear: both;
+    text-box: trim-both text;
+  }
+
+  p {
+    line-height: 1.5;
+    text-box: trim-both text;
+  }
+
+  figcaption {
+    text-box: trim-both text;
+  }
+
+  .articles-list {
+    ::marker {
+      content: "› ";
+    }
+  }
+
   article {
     container: article / inline-size;
     margin-block-end: 3em;
-
-    p, h2, figcaption {
-      text-box: trim-both text;
-    }
+    view-transition-name: article;
 
     figure {
       break-inside: avoid;
@@ -118,14 +136,15 @@ main {
         }
       }
     }
-
-    h2 {
-      margin-block: 1.5em 0;
-      clear: both;
-    }
-
-    p {
-      line-height: 1.5;
-    }
   }
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-new(article) {
+  animation-delay: 250ms;
 }
