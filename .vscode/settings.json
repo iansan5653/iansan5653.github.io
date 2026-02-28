@@ -1,9 +1,10 @@
 {
-  "editor.wordWrap": "wordWrapColumn",
   "editor.rulers": [
     80
   ],
-  "editor.wordWrapColumn": 80,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
   "editor.formatOnSave": true
 }
